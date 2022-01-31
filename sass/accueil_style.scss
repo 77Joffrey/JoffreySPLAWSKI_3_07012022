@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+                                                    /* Utils */
+
+/* Variables */
+$primary-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+$logo_titles-fontfamily: 'Shrikhand', cursive;
+$text-fontfamily: 'Roboto', sans serif;
+
+/* Maps */
+$breakpoints: (
+    mobile: 599px,
+    tablet: 992px,
+);
+
+$font-family: (
+    title: $logo_titles-fontfamily,
+    text: $text-fontfamily
+);
+
+$btn-color: (
+    background: rgb(255,121,218) linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%)
+);
+
+$links-state: (
+    link: (
+        txt: #ffffff,
+        text-decoration: none,
+    ),
+    visited: (
+        txt: $primary-color,
+        text-decoration: none),
+    focus: (
+        txt: $tertiary-color,
+        text-decoration: none),
+    hover: (
+            txt:#0000ff,
+            text-decoration: none),
+    active: (
+            txt:$secondary-color,
+            text-decoration: none),
+);
+
+/* Mixins */
+@mixin mobile {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
+@mixin tablet {
+    @media screen and (max-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
+@mixin links-state ($maps){
+    @each $state, $val in $maps {
+        &:#{$state}{
+            color: map-get($val, txt);
+        }
+    }
+}
+
+                                                    /* Base */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: $text-fontfamily;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    @include links-state($links-state);
+    cursor: pointer;
+}
+p, span{
+    margin: inherit;
+}
+
+                                                    /* Components */
+.btn{
+    border:none;
+    background: map-get($btn-color, background);
+    font-size: 16px;
+    color: #F2F2F2;
+}
+
+                                                    /* Layouts */
+/* Header */
+.heading{
+    display: flex;
+    width: 100%;
+    &__logo{
+        font-family: map-get($font-family, title);
+        text-align: center;
+        margin: auto;
+        font-weight: normal;
+    }
+    @include mobile {
+        height: 70px;
+        &__logo {
+            width: 190px;
+            height: 44px;
+            font-size: 2.2rem;
+        }
+    }
+}
+
+/* Footer */
+.foot{
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    &__logo{
+        font-family: map-get($font-family, title);
+        color: #ffffff;
+        font-weight: normal;
+    }
+    &__footlist{
+        list-style: none;
+        padding-left: inherit;
+    }
+    @include mobile {
+        width: 100%;
+        height: 180px;
+        flex-direction: column;
+        justify-content: center;
+        &__logo{
+            width: 100px;
+            height: 18px;
+            font-size: 115%;
+            margin-left: 20px;
+        }
+        &__footlist{
+            margin-left: 20px;
+        }
+    }
+}
+
+                                                    /* Pages */
+/* Location */
+
+.location{
+    display: flex;
+    justify-content: center;
+    background: #E5E5E5;
+    @include mobile{
+        width: 100%;
+        height: 60px;
+    }
+    .locbox{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto;
+        &__userlocation{
+            font-family: $text-fontfamily;
+            font-size: 16px;
+            background: #E5E5E5;
+            border: none;
+            padding-left: 8px;
+        }
+        @include mobile{
+            width: 190px;
+            height: 25px;
+            &__item {
+                width: 25px;
+                height: 25px;
+                i{
+                    font-size: 20px;
+                }
+            }
+            &__userlocation{
+                width: 165px;
+            }
+        }
+    }
+}
+/* Summary */
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    background: #F2F2F2;
+    @include mobile{
+        width: 100%;
+        height: 280px;
+    }
+    &__text{
+        text-align: center;
+        margin-left:0 ;
+        margin-right: 0;
+        @include mobile{
+            > .p1{
+                margin: 2px auto 2px auto;
+                width: 260px;
+                height: 70px;
+                font-size: 26px;
+                font-weight: bold;
+            }
+            > .p2{
+                margin: 2px auto 2px auto;
+                width: 320px;
+                height: 60px;
+                font-size: 18px;
+            }
+        }
+    }
+    &__btn{
+        margin-left:0 ;
+        margin-right: 0;
+        width: 230px;
+        height: 45px;
+        border-radius: 22.5px;
+    }
+}
+
+/* Functioning */
+
+.functioning{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include mobile{
+        width: 100%;
+        height: 60%;
+        align-items: center;
+    }
+    &__head{
+        width: 90%;
+        font-size: 26px;
+        font-weight: bold;
+        align-self: flex-start;
+        margin: 0 auto 3% auto;
+    }
+}
+.functioningbox{
+    display: flex;
+    @include mobile{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items:flex-end;
+        width: 90%;
+        height: 60%;
+    }
+    &__content{
+        display: flex;
+        align-items: center;
+        width: 97%;
+        height: 30%;
+        background: #F2F2F2;
+        border-radius: 33px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+        margin: 0;
+        > .f1{
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 9%;
+            height: 32%;
+            left: -4.5%;
+            margin: auto;
+            font-size: 16px;
+            background: $primary-color;
+            border-radius: 50%;
+            color: white;
+
+        }
+        > i{
+            width: 10%;
+            font-size: 22px;
+            margin: auto;
+        }
+        > .f2{
+            width: 80%;
+            display: inline-block;
+            margin: auto;
+            font-size: 18px;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+    &--colored{
+        background: lighten($primary-color, 35);
+    }
+    }
+
+
+}
+
+/* Choice */
+
+.choice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F2F2F2;
+    @include mobile{
+        width: 100%;
+        height: 140%;
+    }
+    &__head{
+        width: 90%;
+        font-size: 26px;
+        font-weight: bold;
+        align-self: flex-start;
+        margin: 0 auto 2% auto;
+    }
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border: none;
+    overflow: hidden;
+    @include mobile {
+        width: 90%;
+        height: 20%;
+        margin: 2% auto 2% auto;
+        border-radius: 20px;
+    }
+    &__pic{
+        width: 100%;
+        height: 75%;
+        > img{
+            position: relative;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px 20px 0 0;
+        }
+        > .new{
+            position:absolute;
+            z-index: 1;
+            width: 70px;
+            height: 22px;
+            margin-top: 5%;
+            right: 7%;
+            background: $tertiary-color;
+            font-size: 15px;
+            text-align: center;
+            color: darken($tertiary-color, 40%);
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 25%;
+        color: black;
+        div {
+            > .cp1{
+                font-size: 16px;
+                font-weight: bold;
+                margin: 2px 0 2px 0;
+                
+            }
+            > .cp2{
+                font-size: 16px;
+                margin: 2px 0 2px 0;
+            }
+        }
+        .like i{
+                font-size: 25px;
+            }
+        
+    }
+}
+
+
