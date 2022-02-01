@@ -5,92 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="./css/menu_style.css">
     <title>Ohmyfood - Menu</title>
 </head>
 <body>
-    <header>
-        <a href="./index.html"><i class="fas fa-arrow-left"></i></a>
+    <header class="heading">
+        <a href="./index.html" class="heading__back"><i class="fas fa-arrow-left"></i></a>
         <h1 class="heading__logo">ohmyfood</h1>
     </header>
-    <section>
-        <div>
-            <img src="./images/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="délice_des_sens">
+    <section class="menu">
+        <div class="menu__pic">
+            <img src="./images/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="délice_des_sens" class="placeimage">
         </div>
-        <div>
-            <div>
-                <h1>Le délice des sens</h1>
-                <i class="far fa-heart"></i>
+        <div class="menubox">
+            <div class="menubox__heading">
+                <h1 class="placename">Le délice des sens</h1>
+                <i class="far fa-heart like" ></i>
             </div>
-            <div>
-                <div>
+            <div class="menubox__phase">
+                <div class="phasetitle">
                     <p>Entrées</p>
                 </div>
-                <div>
-                    <p>Tartare de thon</p>
-                    <p>Assaisonné au yuzu</p>
-                    <p>25€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Tartare de thon</p>
+                    <p class="pc2">Assaisonné au yuzu</p>
+                    <p class="price">25€</p>
                 </div>
-                <div>
-                    <p>Bouchée de homard croustillant</p>
-                    <p>Et sa farandole de petits légumes</p>
-                    <p>35€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Bouchée de homard croustillant</p>
+                    <p class="pc2">Et sa farandole de petits légumes</p>
+                    <p class="price">35€</p>
                 </div>
-                <div>
-                    <p>Velouté de cèpes</p>
-                    <p>Aux truffes</p>
-                    <p>20€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Velouté de cèpes</p>
+                    <p class="pc2">Aux truffes</p>
+                    <p class="price">20€</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="menubox__phase">
+                <div class="phasetitle">
                     <p>Plats</p>
                 </div>
-                <div>
-                    <p>Poulet rôti aux herbes de Provence</p>
-                    <p>Et sa crème de truffe</p>
-                    <p>40€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Poulet rôti aux herbes de Provence</p>
+                    <p class="pc2">Et sa crème de truffe</p>
+                    <p class="price">40€</p>
                 </div>
-                <div>
-                    <p>Langouste rôtie</p>
-                    <p>Et ses légumes de saison</p>
-                    <p>35€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Langouste rôtie</p>
+                    <p class="pc2">Et ses légumes de saison</p>
+                    <p class="price">35€</p>
                 </div>
-                <div>
-                    <p>Côte de boeuf Angus</p>
-                    <p>Et sa purée de panais</p>
-                    <p>44€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Côte de boeuf Angus</p>
+                    <p class="pc2">Et sa purée de panais</p>
+                    <p class="price">44€</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="menubox__phase">
+                <div class="phasetitle">
                     <p>Desserts</p>
                 </div>
-                <div>
-                    <p>Farandole de desserts</p>
-                    <p>Du chef</p>
-                    <p>18€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Farandole de desserts</p>
+                    <p class="pc2">Du chef</p>
+                    <p class="price">18€</p>
                 </div>
-                <div>
-                    <p>Crème brulée</p>
-                    <p>Revisitée</p>
-                    <p>22€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Crème brulée</p>
+                    <p class="pc2">Revisitée</p>
+                    <p class="price">22€</p>
                 </div>
-                <div>
-                    <p>Tiramisu</p>
-                    <p>À la noisette</p>
-                    <p>23€</p>
+                <div class="phasecontent">
+                    <p class="pc1">Tiramisu</p>
+                    <p class="pc2">À la noisette</p>
+                    <p class="price">23€</p>
                 </div>
             </div>
-            <input type="button" value="Explorez nos restaurants">
+            <input type="button" value="Commander" class="btn menubox__btn">
         </div>
     </section>
-    <footer>
+    <footer class="foot">
         <h1 class="foot__logo">ohmyfood</h1>
-        <ul>
-            <li><a href="#"><i class="fas fa-utensils"></i>Proposer un restaurant</a></li>
-            <li><a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a></li>
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="mailto:ohmyfoodcontact@restaurant.net">Contact</a></li>
+        <ul class="foot__footlist">
+            <li class="footlist__link"><a href="#"><i class="fas fa-utensils"></i>Proposer un restaurant</a></li>
+            <li class="footlist__link"><a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a></li>
+            <li class="footlist__link"><a href="#">Mentions légales</a></li>
+            <li class="footlist__link"><a href="mailto:ohmyfoodcontact@restaurant.net">Contact</a></li>
         </ul>
 </footer>
 </body>
