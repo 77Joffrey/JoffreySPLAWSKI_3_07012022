@@ -9,6 +9,8 @@ $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
 $logo_titles-fontfamily: 'Shrikhand', cursive;
 $text-fontfamily: 'Roboto', sans serif;
+$btn-color: linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+$lighten-btn: linear-gradient(180deg, rgba(255, 121, 218, 0.85) 0%, rgba(146, 86, 220, 0.85) 100%);
 
 /* Maps */
 $breakpoints: (
@@ -19,10 +21,6 @@ $breakpoints: (
 $font-family: (
     title: $logo_titles-fontfamily,
     text: $text-fontfamily
-);
-
-$btn-color: (
-    background: rgb(255,121,218) linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%)
 );
 
 $links-state: (
@@ -88,11 +86,31 @@ p, span{
 
                                                     /* Components */
 .btn{
+    cursor: pointer;
     border:none;
-    background: map-get($btn-color, background);
+    background: $btn-color;
     font-size: 16px;
     color: #F2F2F2;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+    &:hover{
+        animation: lighten-btn 0.25s ease-in-out both;   
+    }
+    &:active{
+        animation: lighten-btn 0.25s ease-in-out forwards;
+    }   
 }
+
+@keyframes lighten-btn{
+    from{
+        background: $btn-color;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+    }
+    to{
+        background: $lighten-btn;
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;;
+    }
+}
+
 
                                                     /* Layouts */
 /* Header */
@@ -171,6 +189,15 @@ p, span{
         &__heading{
             font-family: $logo_titles-fontfamily;
         }
+        & button{
+            width: fit-content;
+            height: fit-content;
+            padding: 0;
+            border: none;
+            > .like{
+                width: 100%;
+            }
+        }
     }
     @include mobile{
         &__pic{
@@ -205,10 +232,13 @@ p, span{
                     width: 90%;
                     font-size: 26px;
                 }
+            & button{
+                width: 10%;
                 > .like{
-                    width: 10%;
                     font-size: 24px;
                 }
+            }
+
             }
             &__phase{
                 display: flex;

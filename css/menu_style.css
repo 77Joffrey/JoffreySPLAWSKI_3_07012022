@@ -49,11 +49,54 @@ p, span {
 
 /* Components */
 .btn {
+  cursor: pointer;
   border: none;
-  background: #ff79da -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
-  background: #ff79da linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
+  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
   font-size: 16px;
   color: #F2F2F2;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+}
+
+.btn:hover {
+  -webkit-animation: lighten-btn 0.25s ease-in-out both;
+          animation: lighten-btn 0.25s ease-in-out both;
+}
+
+.btn:active {
+  -webkit-animation: lighten-btn 0.25s ease-in-out forwards;
+          animation: lighten-btn 0.25s ease-in-out forwards;
+}
+
+@-webkit-keyframes lighten-btn {
+  from {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
+    background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+  }
+  to {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 121, 218, 0.85)), to(rgba(146, 86, 220, 0.85)));
+    background: linear-gradient(180deg, rgba(255, 121, 218, 0.85) 0%, rgba(146, 86, 220, 0.85) 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
+            box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
+  }
+}
+
+@keyframes lighten-btn {
+  from {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
+    background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+  }
+  to {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 121, 218, 0.85)), to(rgba(146, 86, 220, 0.85)));
+    background: linear-gradient(180deg, rgba(255, 121, 218, 0.85) 0%, rgba(146, 86, 220, 0.85) 100%);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
+            box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
+  }
 }
 
 /* Layouts */
@@ -161,6 +204,21 @@ p, span {
   font-family: "Shrikhand", cursive;
 }
 
+.menu .menubox button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0;
+  border: none;
+}
+
+.menu .menubox button > .like {
+  width: 100%;
+}
+
 @media screen and (max-width: 599px) {
   .menu__pic {
     width: 100%;
@@ -213,8 +271,10 @@ p, span {
     width: 90%;
     font-size: 26px;
   }
-  .menu .menubox__heading > .like {
+  .menu .menubox__heading button {
     width: 10%;
+  }
+  .menu .menubox__heading button > .like {
     font-size: 24px;
   }
   .menu .menubox__phase {
