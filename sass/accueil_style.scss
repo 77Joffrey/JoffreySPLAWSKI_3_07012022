@@ -97,11 +97,10 @@ html {
 }
 body{
     width: 100%;
-    margin: auto;
+    margin: 0;
     padding: 0;
     background-color: #ffffff;
     font-family: $text-fontfamily;
-    max-width: 1600px;
 }
 
 * {
@@ -125,11 +124,9 @@ p, span{
     color: #F2F2F2;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
     &:hover{
-        /* @include btn-state($btn-state); */
         animation: lighten-btn 0.25s ease-in-out both;   
     }
     &:active{
-        /* @include btn-state($btn-state); */
         animation: lighten-btn 0.25s ease-in-out forwards;
     }   
 }
@@ -183,7 +180,7 @@ p, span{
 .foot{
     display: flex;
     width: 100%;
-    height: 120px;
+    height: 100px;
     background-color: rgba(0, 0, 0, 0.75);
     &__logo{
         width: fit-content;
@@ -202,7 +199,7 @@ p, span{
         margin: auto;
         list-style: none;
         padding-left: inherit;
-        font-size: 22px;
+        font-size: 20px;
         & .footlist__link{
             width: 23%;
             text-align: left;
@@ -247,7 +244,36 @@ p, span{
         }
     }
     @include tablet {
-
+        height: 120px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__logo{
+            width: fit-content;
+            display: flex;
+            margin: auto auto 0 auto;
+            font-family: map-get($font-family, title);
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: normal;
+        }
+        &__footlist{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: auto;
+            list-style: none;
+            padding-left: inherit;
+            font-size: 18px;
+            & .footlist__link{
+                width: fit-content;
+                text-align: center;
+                & a i {
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 }
 
@@ -269,11 +295,11 @@ p, span{
         width: 388px;
         height: 34px;
         &__userlocation{
+            height: 34px;
             font-family: $text-fontfamily;
             font-size: 26px;
             background: #E5E5E5;
             border: none;
-            padding-left: 8px;
         }
         &__item {
             width: 34px;
@@ -292,12 +318,33 @@ p, span{
             &__userlocation{
                 width: 165px;
                 font-size: 16px;
+                padding-left: 8px;
             }
             &__item {
                 width: 25px;
                 height: 25px;
                 i{
                     font-size: 20px;
+                }
+            }
+        }
+    }
+    @include tablet {
+        height: 70px;
+        .locbox{
+            width: 280px;
+            height: 35px;
+            &__userlocation{
+                width: 255px;;
+                height: 35px;
+                font-size: 25px;
+                padding-left: 12px;
+            }
+            &__item {
+                width: 25px;
+                height: 35px;
+                i{
+                    font-size: 25px;
                 }
             }
         }
@@ -343,6 +390,7 @@ p, span{
         &__text{
             width: 100%;
             text-align: center;
+            margin-bottom: 0;
             > .p1{
                 margin: 2px auto 2px auto;
                 width: 260px;
@@ -357,8 +405,35 @@ p, span{
                 }
             }
         &__btn{
-            margin-left:0 ;
-            margin-right: 0;
+            margin: 0 0 auto 0;
+            width: 230px;
+            height: 55px;
+            border-radius: 27.5px;
+            font-size: 16px;
+        }
+    }
+    @include tablet {
+        flex-direction: column;
+        height: 280px;
+        &__text{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 0;
+            > .p1{
+                margin: 2px auto 10px auto;
+                width: 75%;
+                height: fit-content;
+                font-size: 32px;
+            }
+            > .p2{
+                margin: 10px auto 10px auto;
+                width: 75%;
+                height: fit-content;
+                font-size: 28px;
+                }
+            }
+        &__btn{
+            margin: 10px 0 auto 0;
             width: 230px;
             height: 55px;
             border-radius: 27.5px;
@@ -380,7 +455,7 @@ p, span{
         font-size: 36px;
         font-weight: bold;
         align-self: flex-start;
-        margin: auto;
+        margin: auto auto 15px auto;
     }
     @include mobile{
     height: 440px;
@@ -393,7 +468,13 @@ p, span{
         }
     }
     @include tablet {
-        height: 300px;
+        height: 450px;
+        &__head{
+            font-size: 32px;
+            font-weight: bold;
+            align-self: flex-start;
+            margin: auto auto 15px auto;
+        }
     }
 }
 .functioningbox{
@@ -454,6 +535,7 @@ p, span{
         align-items:flex-end;
         width: 90%;
         height: 70%;
+        margin-top: 2%;
         &__content{
             display: flex;
             align-items: center;
@@ -498,6 +580,65 @@ p, span{
             }
         }
     }
+    @include tablet {
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+        height: 300px;
+        margin-top: 2%;
+        &__content{
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 90px;
+            background: #F2F2F2;
+            border-radius: 30px;
+            margin: 10px auto 10px auto;
+            > .f1{
+                display: inline-block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                width: 12%;
+                height: 40px;
+                left: -4.5%;
+                margin: auto;
+                font-size: 18px;
+                background: $primary-color;
+                border-radius: 50%;
+                color: white;
+            }
+            > i{
+                width: 10%;
+                font-size: 24px;
+                margin: auto;
+            }
+            > .f2{
+                width: 80%;
+                display: inline-block;
+                margin: auto;
+                font-size: 20px;
+                font-weight: bold;
+                padding-left: 10px;
+            }
+            &--colored{
+                background: lighten($primary-color, 35);
+                > i{
+                    color: $primary-color;
+                }
+            }
+        }
+        .fc1 {
+            margin-left: 0%;
+        }
+        .fc2{
+            margin-left: 25%;
+        }
+        .fc3{
+            margin-left: 50%;
+        }
+    }
 }
 
 /* Choice */
@@ -517,18 +658,33 @@ p, span{
         font-size: 36px;
         font-weight: bold;
         align-self: flex-start;
-        margin: auto 0 auto 0;
+        margin: 25px 0 15px 0;
     }
     @include mobile{
-    height: 1500px;
+    height: 1400px;
     padding: inherit;
-    justify-content: center;
+    padding: 0 0 10% 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
         &__head{
             width: 90%;
             font-size: 26px;
             margin: 20px auto 2% auto;
         }
     }
+    @include tablet {
+        height: 850px;
+        padding: inherit;
+        padding: 0 0 10% 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+            &__head{
+                width: 92%;
+                font-size: 32px;
+                margin: 20px auto 2% auto;
+            }
+        }
 }
 .card{
     display: flex;
@@ -541,11 +697,61 @@ p, span{
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
     border-radius: 20px;
+    margin-bottom: 30px;
+    &__pic{
+        width: 100%;
+        height: 75%;
+        > .placeimage{
+            position: relative;
+            object-fit: cover;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px 20px 0 0;
+        }
+        & .new{
+            position:absolute;
+            z-index: 1;
+            width: 75px;
+            height: 25px;
+            margin-top: 5%;
+            background: $tertiary-color;
+            font-size: 14px;
+            text-align: center;
+            color: darken($tertiary-color, 40%);
+            bottom: -14%;
+        }
+        & .n1{
+            left: 18.5%;
+        }
+        & .n2{
+            left: 42.5%;
+        }
+    }
     &__content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 25%;
+        color: black;
+        background: white;
         div{
+            > .cp1{
+                font-size: 16px;
+                font-weight: bold;
+                margin: 2px 0 2px 0;
+                
+            }
+            > .cp2{
+                font-size: 16px;
+                margin: 2px 0 2px 0;
+            }
             .like{
                 border: none;
                 background: $btn-color;
+                font-size: 25px;
                 opacity: 0;
                 padding: 0;
                     &:hover{
@@ -563,57 +769,38 @@ p, span{
     @include mobile {
         width: 90%;
         height: 300px;
+        margin-bottom: inherit;
         margin: 2% auto 2% auto;
         border-radius: 20px;
-    }
-    &__pic{
-        width: 100%;
-        height: 75%;
-        > img{
-            position: relative;
-            object-fit: cover;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px 20px 0 0;
-        }
-        > .new{
-            position:absolute;
-            z-index: 1;
-            width: 70px;
-            height: 22px;
-            margin-top: 5%;
-            right: 7%;
-            background: $tertiary-color;
-            font-size: 15px;
-            text-align: center;
-            color: darken($tertiary-color, 40%);
-        }
-    }
-    &__content{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        height: 25%;
-        color: black;
-        background: white;
-        div {
-            > .cp1{
-                font-size: 16px;
-                font-weight: bold;
-                margin: 2px 0 2px 0;
-                
+        &__pic{
+            .new{
+                bottom: inherit;
             }
-            > .cp2{
-                font-size: 16px;
-                margin: 2px 0 2px 0;
+            .n1, .n2{
+                left: inherit;
+                right: 8%;
             }
         }
-        .like i{
-                font-size: 25px;
-        }     
+    }
+    @include tablet {
+        width: 45%;
+        height: 300px;
+        margin-bottom: inherit;
+        margin: 2% auto 2% auto;
+        border-radius: 20px;
+        &__pic{
+            .new{
+                bottom: -4%;
+            }
+            .n1{
+                left: inherit;
+                right: 55%;
+            }
+            .n2{
+                left: inherit;
+                right: 5%;
+            }
+        }
     }
 }
 

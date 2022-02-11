@@ -49,7 +49,7 @@ $links-state: (
     }
 }
 @mixin tablet {
-    @media screen and (max-width: map-get($breakpoints, tablet)){
+    @media screen and (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet)){
         @content;
     }
 }
@@ -120,32 +120,53 @@ p, span{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 150px;
     &__logo{
+        width: 80%;
+        margin: auto auto auto 0;
         font-family: map-get($font-family, title);
         text-align: center;
-        margin: auto;
         font-weight: normal;
+        font-size: 72px;
     }
     &__back{
         position: relative;
+        z-index: 1;
+        width: 10%;
+        left: 20px;
         > i{
-
             color: black;
+            font-size: 48px;
         }
     }
     @include mobile {
         height: 70px;
         &__logo {
-            width: 80%;
             height: 44px;
             font-size: 2.2rem;
             margin-left: 0;
         }
         &__back{
-            width: 10%;
-            font-size: 1.5rem;
             left: 20px;
             z-index: 1;
+            > i{
+                font-size: 24px;
+            }
+        }
+    }
+    @include tablet {
+        height: 100px;
+        &__logo {
+            height: fit-content;
+            font-size: 48px;
+            margin-left: 0;
+        }
+        &__back{
+            left: 20px;
+            z-index: 1;
+            > i{
+                font-size: 28px;
+            }
         }
     }
 }
@@ -154,29 +175,99 @@ p, span{
 .foot{
     display: flex;
     width: 100%;
+    height: 100px;
     background-color: rgba(0, 0, 0, 0.75);
     &__logo{
+        width: fit-content;
+        display: flex;
+        margin: auto 5% auto 5%;
         font-family: map-get($font-family, title);
+        font-size: 28px;
         color: #ffffff;
         font-weight: normal;
     }
     &__footlist{
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
         list-style: none;
         padding-left: inherit;
+        font-size: 20px;
+        & .footlist__link{
+            width: 23%;
+            text-align: left;
+            & a i {
+                margin-right: 10px;
+            }
+        }
     }
     @include mobile {
-        width: 100%;
         height: 180px;
         flex-direction: column;
         justify-content: center;
         &__logo{
             width: 100px;
-            height: 18px;
-            font-size: 115%;
+            height: 20px;
+            font-size: 22px;
             margin-left: 20px;
         }
         &__footlist{
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
             margin-left: 20px;
+            & .footlist__link{
+                width: 100%;
+                text-align: inherit;
+                a {
+                    & .footerlogo1{
+                        width: 15px;
+                        height: 18px;
+                        margin-right: 10px;
+                        font-size: 17px;
+                    }
+                    & .footerlogo2{
+                        width: 15px;
+                        height: 18px;
+                        margin-right: 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    @include tablet {
+        height: 120px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__logo{
+            width: fit-content;
+            display: flex;
+            margin: auto auto 0 auto;
+            font-family: map-get($font-family, title);
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: normal;
+        }
+        &__footlist{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: auto;
+            list-style: none;
+            padding-left: inherit;
+            font-size: 18px;
+            & .footlist__link{
+                width: fit-content;
+                text-align: center;
+                & a i {
+                    margin-right: 10px;
+                }
+            }
         }
     }
 }
@@ -185,25 +276,110 @@ p, span{
 .menu{
     width: 100%;
     background: #F2F2F2;
-    & .menubox{
-        &__heading{
-            font-family: $logo_titles-fontfamily;
+    &__pic{
+        width: 60%;
+        height: 400px;
+        overflow: hidden;
+        float: right;
+        > .placeimage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
         }
-        & button{
-            width: fit-content;
+    }
+    &__heading{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+        height: 400px;
+        background: #ffffff;
+        > .placename {
+            width: 80%;
+            height: fit-content;
+            margin: auto auto 25px auto;
+            text-align: center;
+            font-family: $logo_titles-fontfamily;
+            font-size: 62px;
+        }
+        > .like{
+            width: 100%;
             height: fit-content;
             padding: 0;
             border: none;
-            > .like{
-                width: 100%;
+            margin: 25px auto auto auto;
+            text-align: center;
+            font-size: 36px;
+        }
+    }
+    & .menubox{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        &__phase{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 31%;
+            margin: 15px 1% 15px 1%;
+            float: none;
+            & .phasetitle{
+                font-size: 28px;
+                text-transform: uppercase;
+                margin: 20px auto 10px auto ;
             }
+            & .phasecontent{
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 100%;
+                height: 60px;
+                background: #ffffff;
+                border-radius: 20px;
+                margin: 15px auto 15px auto;
+                > .pc1{
+                    width: 80%;
+                    margin: 8px 0 2px 0;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                > .pc2{
+                    width: 80%;
+                    margin: 2px 0 8px 0;
+                    font-size: 13px;
+                }
+                > .price{
+                    width: 10%;
+                    margin: auto 10px 8px 0;
+                    font-size: 13px;
+                    font-weight: bold;
+                    align-self: flex-end;
+                }
+            }
+        }
+        &__btn{
+            display: flex;
+            justify-content: center;
+            width: 30%;
+            height: 45px;
+            border-radius: 22.5px;
+            margin: 15px auto 15px auto;
+            font-size: 24px;
         }
     }
     @include mobile{
+        display: inherit;
         &__pic{
             width: 100%;
             height: 300px;
             overflow: hidden;
+            float: inherit;
             > .placeimage{
                 width: 100%;
                 height: 100%;
@@ -212,34 +388,43 @@ p, span{
                 z-index: 0;
             }
         }
+        &__heading{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: inherit;
+            padding-top: 15px ;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+            bottom: 50px;
+            border-radius: 30px 30px 0 0;
+            background: #F2F2F2;
+            > .placename{
+                width: 70%;
+                font-size: 26px;
+                margin: auto;
+                text-align: left;
+            }
+            > .like {
+                width: 10%;
+                font-size: 24px;
+                margin: auto;
+            }
+        }
         & .menubox{
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
             width: 100%;
-            border-radius: 30px 30px 0 0;
+
             position: relative;
             z-index: 1;
-            bottom: 55px;
+            bottom: 50px;
             background: #F2F2F2;
-            &__heading{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                width: 90%;
-                > .placename{
-                    width: 90%;
-                    font-size: 26px;
-                }
-            & button{
-                width: 10%;
-                > .like{
-                    font-size: 24px;
-                }
-            }
-
-            }
             &__phase{
                 display: flex;
                 flex-direction: column;
@@ -283,12 +468,110 @@ p, span{
                 }
             }
             &__btn{
+                display: inherit;
                 width: 50%;
                 height: 45px;
                 border-radius: 22.5px;
                 margin: 15px auto 15px auto;
+                font-size: 18px;
             }
         }
     }
-
+    @include tablet{
+        display: inherit;
+        &__pic{
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            float: inherit;
+            > .placeimage{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                z-index: 0;
+            }
+        }
+        &__heading{
+            display: flex;
+            flex-direction: row;
+            justify-content:center;
+            align-items: center;
+            width: 50%;
+            height: inherit;
+            margin: 20px 25% auto 25%;
+            background: #F2F2F2;
+            > .placename{
+                width: 90%;
+                height: 100%;
+                font-size: 32px;
+                margin: auto;
+            }
+            > .like{
+                width: 10%;
+                font-size: 28px;
+                margin: auto;
+            }
+        }
+        & .menubox{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            width: 100%;
+            border-radius: 30px 30px 0 0;
+            background: #F2F2F2;
+            &__phase{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                margin: 20px 0 15px 0;
+                & .phasetitle{
+                    justify-self: center;
+                    font-size: 24px;
+                    text-transform: uppercase;
+                    margin: auto;
+                }
+                & .phasecontent{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    width: 65%;
+                    height: 55px;
+                    background: #ffffff;
+                    border-radius: 16px;
+                    margin: 6px auto 6px auto;
+                    > .pc1{
+                        width: 75%;
+                        margin: 8px 0 2px 0;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    > .pc2{
+                        width: 75%;
+                        margin: 2px 0 8px 0;
+                        font-size: 13px;
+                        }
+                    > .price{
+                        width: 10%;
+                        margin: auto 10px 8px 0;
+                        font-size: 13px;
+                        font-weight: bold;
+                        align-self: flex-end;
+                    }
+                }
+            }
+            &__btn{
+                display: inherit;
+                width: 40%;
+                height: 45px;
+                border-radius: 22.5px;
+                margin: 15px auto 15px auto;
+                font-size: 22px;
+            }
+        }
+    }
 }
