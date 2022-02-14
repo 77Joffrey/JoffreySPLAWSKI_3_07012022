@@ -142,6 +142,37 @@ p, span{
     }
 }
 
+.like_btn{
+    height: fit-content;
+    border: none;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+        &:hover, :active {
+            i {
+                opacity: 0;  
+            }
+            .like_btn--on {
+                opacity: 1;
+            }
+        }
+    &--on {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        height: fit-content;
+        margin: auto;
+        text-align: center;
+        color: $primary-color;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+}
+
 
                                                     /* Layouts */
 /* Header */
@@ -699,33 +730,27 @@ p, span{
     border-radius: 20px;
     margin-bottom: 30px;
     &__pic{
+        position: relative;
         width: 100%;
         height: 75%;
-        > .placeimage{
-            position: relative;
+        .placeimage{
             object-fit: cover;
             z-index: 0;
             width: 100%;
             height: 100%;
             border-radius: 20px 20px 0 0;
         }
-        & .new{
+        .new{
             position:absolute;
             z-index: 1;
             width: 75px;
             height: 25px;
-            margin-top: 5%;
             background: $tertiary-color;
             font-size: 14px;
             text-align: center;
             color: darken($tertiary-color, 40%);
-            bottom: -14%;
-        }
-        & .n1{
-            left: 18.5%;
-        }
-        & .n2{
-            left: 42.5%;
+            top: 5%;
+            right: 4%;
         }
     }
     &__content{
@@ -748,39 +773,22 @@ p, span{
                 font-size: 16px;
                 margin: 2px 0 2px 0;
             }
-            .like{
-                border: none;
-                background: $btn-color;
-                font-size: 25px;
-                opacity: 0;
-                padding: 0;
-                    &:hover{
-                        opacity: 1;
-                        transition: 1s;
-                    }
-                    &:active{
-                        opacity: 1;
-                        transition: 1s;
-                    }
-                }
-
+        }
+        .like_btn{
+            font-size: 20px;
+            background: #ffffff;
+            &--on {
+                font-size: 20px;
+                background: #ffffff;
             }
         }
+    }
     @include mobile {
         width: 90%;
         height: 300px;
         margin-bottom: inherit;
         margin: 2% auto 2% auto;
         border-radius: 20px;
-        &__pic{
-            .new{
-                bottom: inherit;
-            }
-            .n1, .n2{
-                left: inherit;
-                right: 8%;
-            }
-        }
     }
     @include tablet {
         width: 45%;
@@ -788,19 +796,6 @@ p, span{
         margin-bottom: inherit;
         margin: 2% auto 2% auto;
         border-radius: 20px;
-        &__pic{
-            .new{
-                bottom: -4%;
-            }
-            .n1{
-                left: inherit;
-                right: 55%;
-            }
-            .n2{
-                left: inherit;
-                right: 5%;
-            }
-        }
     }
 }
 

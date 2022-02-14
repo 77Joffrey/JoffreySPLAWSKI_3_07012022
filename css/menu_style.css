@@ -57,14 +57,16 @@ p, span {
   color: #F2F2F2;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
           box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+  -webkit-animation-name: linear-gradient(180deg, rgba(255, 121, 218, 0.85) 0%, rgba(146, 86, 220, 0.85) 100%);
+          animation-name: linear-gradient(180deg, rgba(255, 121, 218, 0.85) 0%, rgba(146, 86, 220, 0.85) 100%);
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  animation-direction: reverse;
 }
 
-.btn:hover {
-  -webkit-animation: lighten-btn 0.25s ease-in-out both;
-          animation: lighten-btn 0.25s ease-in-out both;
-}
-
-.btn:active {
+.btn:hover, .btn :active {
   -webkit-animation: lighten-btn 0.25s ease-in-out forwards;
           animation: lighten-btn 0.25s ease-in-out forwards;
 }
@@ -97,6 +99,43 @@ p, span {
     -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
             box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;
   }
+}
+
+.like_btn {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: none;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+
+.like_btn:hover i, .like_btn :active i {
+  opacity: 0;
+}
+
+.like_btn:hover .like_btn--on, .like_btn :active .like_btn--on {
+  opacity: 1;
+}
+
+.like_btn--on {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  text-align: center;
+  color: #9356DC;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Layouts */
@@ -331,6 +370,19 @@ p, span {
 }
 
 /* Page */
+@-webkit-keyframes contentmenu-anim {
+  from {
+  }
+  to {
+  }
+}
+@keyframes contentmenu-anim {
+  from {
+  }
+  to {
+  }
+}
+
 .menu {
   width: 100%;
   background: #F2F2F2;
@@ -343,7 +395,7 @@ p, span {
   float: right;
 }
 
-.menu__pic > .placeimage {
+.menu__pic .placeimage {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -368,7 +420,7 @@ p, span {
   background: #ffffff;
 }
 
-.menu__heading > .placename {
+.menu__heading .placename {
   width: 80%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -379,16 +431,16 @@ p, span {
   font-size: 62px;
 }
 
-.menu__heading > .like {
+.menu__heading .like_btn {
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 0;
-  border: none;
   margin: 25px auto auto auto;
-  text-align: center;
   font-size: 36px;
+  background: #ffffff;
+}
+
+.menu__heading .like_btn--on {
+  font-size: 36px;
+  background: #ffffff;
 }
 
 .menu .menubox {
@@ -427,6 +479,7 @@ p, span {
   font-size: 28px;
   text-transform: uppercase;
   margin: 20px auto 10px auto;
+  opacity: 1;
 }
 
 .menu .menubox__phase .phasecontent {
@@ -450,22 +503,25 @@ p, span {
   background: #ffffff;
   border-radius: 20px;
   margin: 15px auto 15px auto;
+  opacity: 1;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
 }
 
-.menu .menubox__phase .phasecontent > .pc1 {
+.menu .menubox__phase .phasecontent .pc1 {
   width: 80%;
   margin: 8px 0 2px 0;
   font-size: 16px;
   font-weight: bold;
 }
 
-.menu .menubox__phase .phasecontent > .pc2 {
+.menu .menubox__phase .phasecontent .pc2 {
   width: 80%;
   margin: 2px 0 8px 0;
   font-size: 13px;
 }
 
-.menu .menubox__phase .phasecontent > .price {
+.menu .menubox__phase .phasecontent .price {
   width: 10%;
   margin: auto 10px 8px 0;
   font-size: 13px;
@@ -498,7 +554,7 @@ p, span {
     overflow: hidden;
     float: inherit;
   }
-  .menu__pic > .placeimage {
+  .menu__pic .placeimage {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -530,16 +586,21 @@ p, span {
     border-radius: 30px 30px 0 0;
     background: #F2F2F2;
   }
-  .menu__heading > .placename {
+  .menu__heading .placename {
     width: 70%;
     font-size: 26px;
     margin: auto;
     text-align: left;
   }
-  .menu__heading > .like {
+  .menu__heading .like_btn {
     width: 10%;
     font-size: 24px;
     margin: auto;
+    background: #F2F2F2;
+  }
+  .menu__heading .like_btn--on {
+    font-size: 24px;
+    background: #F2F2F2;
   }
   .menu .menubox {
     display: -webkit-box;
@@ -602,18 +663,18 @@ p, span {
     border-radius: 16px;
     margin: 6px auto 6px auto;
   }
-  .menu .menubox__phase .phasecontent > .pc1 {
+  .menu .menubox__phase .phasecontent .pc1 {
     width: 75%;
     margin: 8px 0 2px 0;
     font-size: 16px;
     font-weight: bold;
   }
-  .menu .menubox__phase .phasecontent > .pc2 {
+  .menu .menubox__phase .phasecontent .pc2 {
     width: 75%;
     margin: 2px 0 8px 0;
     font-size: 13px;
   }
-  .menu .menubox__phase .phasecontent > .price {
+  .menu .menubox__phase .phasecontent .price {
     width: 10%;
     margin: auto 10px 8px 0;
     font-size: 13px;
@@ -641,7 +702,7 @@ p, span {
     overflow: hidden;
     float: inherit;
   }
-  .menu__pic > .placeimage {
+  .menu__pic .placeimage {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -668,16 +729,21 @@ p, span {
     margin: 20px 25% auto 25%;
     background: #F2F2F2;
   }
-  .menu__heading > .placename {
+  .menu__heading .placename {
     width: 90%;
     height: 100%;
     font-size: 32px;
     margin: auto;
   }
-  .menu__heading > .like {
+  .menu__heading .like_btn {
     width: 10%;
-    font-size: 28px;
+    font-size: 24px;
     margin: auto;
+    background: #F2F2F2;
+  }
+  .menu__heading .like_btn--on {
+    font-size: 24px;
+    background: #F2F2F2;
   }
   .menu .menubox {
     display: -webkit-box;
@@ -740,18 +806,18 @@ p, span {
     border-radius: 16px;
     margin: 6px auto 6px auto;
   }
-  .menu .menubox__phase .phasecontent > .pc1 {
+  .menu .menubox__phase .phasecontent .pc1 {
     width: 75%;
     margin: 8px 0 2px 0;
     font-size: 16px;
     font-weight: bold;
   }
-  .menu .menubox__phase .phasecontent > .pc2 {
+  .menu .menubox__phase .phasecontent .pc2 {
     width: 75%;
     margin: 2px 0 8px 0;
     font-size: 13px;
   }
-  .menu .menubox__phase .phasecontent > .price {
+  .menu .menubox__phase .phasecontent .price {
     width: 10%;
     margin: auto 10px 8px 0;
     font-size: 13px;

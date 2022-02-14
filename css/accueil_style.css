@@ -104,6 +104,43 @@ p, span {
   }
 }
 
+.like_btn {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: none;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+
+.like_btn:hover i, .like_btn :active i {
+  opacity: 0;
+}
+
+.like_btn:hover .like_btn--on, .like_btn :active .like_btn--on {
+  opacity: 1;
+}
+
+.like_btn--on {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  text-align: center;
+  color: #9356DC;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
 /* Layouts */
 /* Header */
 .heading {
@@ -898,12 +935,12 @@ p, span {
 }
 
 .card__pic {
+  position: relative;
   width: 100%;
   height: 75%;
 }
 
-.card__pic > .placeimage {
-  position: relative;
+.card__pic .placeimage {
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 0;
@@ -917,20 +954,12 @@ p, span {
   z-index: 1;
   width: 75px;
   height: 25px;
-  margin-top: 5%;
   background: #99E2D0;
   font-size: 14px;
   text-align: center;
   color: #278870;
-  bottom: -14%;
-}
-
-.card__pic .n1 {
-  left: 18.5%;
-}
-
-.card__pic .n2 {
-  left: 42.5%;
+  top: 5%;
+  right: 4%;
 }
 
 .card__content {
@@ -964,25 +993,14 @@ p, span {
   margin: 2px 0 2px 0;
 }
 
-.card__content div .like {
-  border: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
-  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
-  font-size: 25px;
-  opacity: 0;
-  padding: 0;
+.card__content .like_btn {
+  font-size: 20px;
+  background: #ffffff;
 }
 
-.card__content div .like:hover {
-  opacity: 1;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.card__content div .like:active {
-  opacity: 1;
-  -webkit-transition: 1s;
-  transition: 1s;
+.card__content .like_btn--on {
+  font-size: 20px;
+  background: #ffffff;
 }
 
 @media screen and (max-width: 599px) {
@@ -993,13 +1011,6 @@ p, span {
     margin: 2% auto 2% auto;
     border-radius: 20px;
   }
-  .card__pic .new {
-    bottom: inherit;
-  }
-  .card__pic .n1, .card__pic .n2 {
-    left: inherit;
-    right: 8%;
-  }
 }
 
 @media screen and (min-width: 599px) and (max-width: 992px) {
@@ -1009,17 +1020,6 @@ p, span {
     margin-bottom: inherit;
     margin: 2% auto 2% auto;
     border-radius: 20px;
-  }
-  .card__pic .new {
-    bottom: -4%;
-  }
-  .card__pic .n1 {
-    left: inherit;
-    right: 55%;
-  }
-  .card__pic .n2 {
-    left: inherit;
-    right: 5%;
   }
 }
 /*# sourceMappingURL=accueil_style.css.map */
