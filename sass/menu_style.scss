@@ -113,6 +113,7 @@ p, span{
 }
 
 .like_btn{
+    width: fit-content;
     height: fit-content;
     border: none;
     text-align: center;
@@ -120,7 +121,8 @@ p, span{
     z-index: 0;
         &:hover, :active {
             i {
-                opacity: 0;  
+                opacity: 0;
+                transition: opacity 0.75s ease-in-out;
             }
             .like_btn--on {
                 opacity: 1;
@@ -133,13 +135,13 @@ p, span{
         top: 0;
         bottom: 0;
         z-index: 1;
-        width: 100%;
+        width: fit-content;
         height: fit-content;
         margin: auto;
         text-align: center;
         color: $primary-color;
         opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.75s ease-in-out;
     }
 }
 
@@ -345,7 +347,7 @@ p, span{
             font-size: 62px;
         }
         .like_btn{
-            width: 100%;
+            width: fit-content;
             margin: 25px auto auto auto;
             font-size: 36px;
             background: #ffffff;

@@ -116,6 +116,8 @@ p, span {
 
 .like_btn:hover i, .like_btn :active i {
   opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .like_btn:hover .like_btn--on, .like_btn :active .like_btn--on {
@@ -137,8 +139,169 @@ p, span {
   text-align: center;
   color: #9356DC;
   opacity: 0;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Loading spinner */
+.loader {
+  position: absolute;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  -webkit-animation: loader-block 3s ease-in forwards;
+          animation: loader-block 3s ease-in forwards;
+  opacity: 0.9;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.loader .load-pic {
+  width: 70%;
+  height: 70%;
+  position: relative;
+  z-index: 99;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  margin: 10% 15% 20% 15%;
+  opacity: 1;
+  -webkit-animation: loading-anim 1s ease-in-out 2 normal both;
+          animation: loading-anim 1s ease-in-out 2 normal both;
+}
+
+@-webkit-keyframes loader-block {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  1% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  99% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes loader-block {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  1% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  99% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes loading-anim {
+  0% {
+    -webkit-transform: rotatez(0deg) scale(0);
+            transform: rotatez(0deg) scale(0);
+  }
+  10% {
+    -webkit-transform: rotatez(90deg) scale(0.5);
+            transform: rotatez(90deg) scale(0.5);
+  }
+  20% {
+    -webkit-transform: rotatez(180deg) scale(1);
+            transform: rotatez(180deg) scale(1);
+  }
+  30% {
+    -webkit-transform: rotatez(270deg);
+            transform: rotatez(270deg);
+  }
+  40% {
+    -webkit-transform: rotatez(360deg);
+            transform: rotatez(360deg);
+  }
+  50% {
+    -webkit-transform: rotatez(0deg);
+            transform: rotatez(0deg);
+  }
+  60% {
+    -webkit-transform: rotatez(0deg);
+            transform: rotatez(0deg);
+  }
+  70% {
+    -webkit-transform: rotatez(90deg);
+            transform: rotatez(90deg);
+  }
+  80% {
+    -webkit-transform: rotatez(180deg);
+            transform: rotatez(180deg);
+  }
+  90% {
+    -webkit-transform: rotatez(270deg) scale(0.5);
+            transform: rotatez(270deg) scale(0.5);
+  }
+  100% {
+    -webkit-transform: rotatez(360deg) scale(0);
+            transform: rotatez(360deg) scale(0);
+  }
+}
+
+@keyframes loading-anim {
+  0% {
+    -webkit-transform: rotatez(0deg) scale(0);
+            transform: rotatez(0deg) scale(0);
+  }
+  10% {
+    -webkit-transform: rotatez(90deg) scale(0.5);
+            transform: rotatez(90deg) scale(0.5);
+  }
+  20% {
+    -webkit-transform: rotatez(180deg) scale(1);
+            transform: rotatez(180deg) scale(1);
+  }
+  30% {
+    -webkit-transform: rotatez(270deg);
+            transform: rotatez(270deg);
+  }
+  40% {
+    -webkit-transform: rotatez(360deg);
+            transform: rotatez(360deg);
+  }
+  50% {
+    -webkit-transform: rotatez(0deg);
+            transform: rotatez(0deg);
+  }
+  60% {
+    -webkit-transform: rotatez(0deg);
+            transform: rotatez(0deg);
+  }
+  70% {
+    -webkit-transform: rotatez(90deg);
+            transform: rotatez(90deg);
+  }
+  80% {
+    -webkit-transform: rotatez(180deg);
+            transform: rotatez(180deg);
+  }
+  90% {
+    -webkit-transform: rotatez(270deg) scale(0.5);
+            transform: rotatez(270deg) scale(0.5);
+  }
+  100% {
+    -webkit-transform: rotatez(360deg) scale(0);
+            transform: rotatez(360deg) scale(0);
+  }
 }
 
 /* Layouts */
