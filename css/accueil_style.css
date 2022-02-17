@@ -105,6 +105,10 @@ p, span {
 }
 
 .like_btn {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -116,12 +120,14 @@ p, span {
 
 .like_btn:hover i, .like_btn :active i {
   opacity: 0;
-  -webkit-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 0.75s ease-in-out;
+  transition: opacity 0.75s ease-in-out;
 }
 
 .like_btn:hover .like_btn--on, .like_btn :active .like_btn--on {
   opacity: 1;
+  -webkit-transition: opacity 0.75s ease-in-out;
+  transition: opacity 0.75s ease-in-out;
 }
 
 .like_btn--on {
@@ -131,7 +137,9 @@ p, span {
   top: 0;
   bottom: 0;
   z-index: 1;
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -139,8 +147,6 @@ p, span {
   text-align: center;
   color: #9356DC;
   opacity: 0;
-  -webkit-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
 }
 
 /* Loading spinner */
@@ -150,11 +156,99 @@ p, span {
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  -webkit-animation: loader-block 3s ease-in forwards;
-          animation: loader-block 3s ease-in forwards;
+  -webkit-animation: loader-block 2s ease-in forwards;
+          animation: loader-block 2s ease-in forwards;
   opacity: 0.9;
   -webkit-transform-origin: top;
           transform-origin: top;
+}
+
+.loader__bar1 {
+  position: absolute;
+  z-index: 97;
+  left: 1%;
+  top: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #9356DC;
+  border-radius: 15px 0 0 15px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: load-barsX 0.5s ease-in 0s 1 normal both;
+          animation: load-barsX 0.5s ease-in 0s 1 normal both;
+}
+
+.loader__bar2 {
+  position: absolute;
+  z-index: 96;
+  left: 33%;
+  top: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #FF79DA;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: load-barsX 0.5s linear 0.4s 1 normal both;
+          animation: load-barsX 0.5s linear 0.4s 1 normal both;
+}
+
+.loader__bar3 {
+  position: absolute;
+  z-index: 95;
+  left: 66%;
+  top: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+          animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+}
+
+.loader__bar4 {
+  position: absolute;
+  z-index: 97;
+  right: 1%;
+  bottom: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #9356DC;
+  border-radius: 0 15px 15px 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-animation: load-barsX 0.5s ease-in 0s 1 normal both;
+          animation: load-barsX 0.5s ease-in 0s 1 normal both;
+}
+
+.loader__bar5 {
+  position: absolute;
+  z-index: 96;
+  right: 33%;
+  bottom: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #FF79DA;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-animation: load-barsX 0.5s linear 0.4s 1 normal both;
+          animation: load-barsX 0.5s linear 0.4s 1 normal both;
+}
+
+.loader__bar6 {
+  position: absolute;
+  z-index: 95;
+  right: 66%;
+  bottom: 0;
+  width: 33%;
+  height: 3%;
+  background-color: #99E2D0;
+  border-radius: 15px 0 0 15px;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+          animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
 }
 
 .loader .load-pic {
@@ -168,8 +262,8 @@ p, span {
   bottom: auto;
   margin: 10% 15% 20% 15%;
   opacity: 1;
-  -webkit-animation: loading-anim 1s ease-in-out 2 normal both;
-          animation: loading-anim 1s ease-in-out 2 normal both;
+  -webkit-animation: loading-anim 1s ease-in 2 normal both;
+          animation: loading-anim 1s ease-in 2 normal both;
 }
 
 @-webkit-keyframes loader-block {
@@ -301,6 +395,66 @@ p, span {
   100% {
     -webkit-transform: rotatez(360deg) scale(0);
             transform: rotatez(360deg) scale(0);
+  }
+}
+
+@-webkit-keyframes load-barsX {
+  0% {
+    -webkit-transform: scaleX(0) scaleY(1);
+            transform: scaleX(0) scaleY(1);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes load-barsX {
+  0% {
+    -webkit-transform: scaleX(0) scaleY(1);
+            transform: scaleX(0) scaleY(1);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+  }
+}
+
+@-webkit-keyframes load-barsY {
+  0% {
+    -webkit-transform: scaleX(1) scaleY(0);
+            transform: scaleX(1) scaleY(0);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes load-barsY {
+  0% {
+    -webkit-transform: scaleX(1) scaleY(0);
+            transform: scaleX(1) scaleY(0);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
   }
 }
 
@@ -539,7 +693,7 @@ p, span {
   height: 34px;
 }
 
-.location .locbox__userlocation {
+.location .locbox #locbox__userlocation {
   height: 34px;
   font-family: "Roboto", sans serif;
   font-size: 26px;
@@ -565,7 +719,7 @@ p, span {
     width: 190px;
     height: 25px;
   }
-  .location .locbox__userlocation {
+  .location .locbox #locbox__userlocation {
     width: 165px;
     font-size: 16px;
     padding-left: 8px;
@@ -587,7 +741,7 @@ p, span {
     width: 280px;
     height: 35px;
   }
-  .location .locbox__userlocation {
+  .location .locbox #locbox__userlocation {
     width: 255px;
     height: 35px;
     font-size: 25px;

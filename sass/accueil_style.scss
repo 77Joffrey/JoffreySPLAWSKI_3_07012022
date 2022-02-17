@@ -139,6 +139,8 @@ p, span{
 }
 
 .like_btn{
+    cursor: pointer;
+    width: fit-content;
     height: fit-content;
     border: none;
     text-align: center;
@@ -147,10 +149,11 @@ p, span{
         &:hover, :active {
             i {
                 opacity: 0;
-                transition: opacity 1s ease-in-out;
+                transition: opacity 0.75s ease-in-out;
             }
             .like_btn--on {
                 opacity: 1;
+                transition: opacity 0.75s ease-in-out;
             }
         }
     &--on {
@@ -160,13 +163,12 @@ p, span{
         top: 0;
         bottom: 0;
         z-index: 1;
-        width: 100%;
+        width: fit-content;
         height: fit-content;
         margin: auto;
         text-align: center;
         color: $primary-color;
         opacity: 0;
-        transition: opacity 1s ease-in-out;
     }
 }
 
@@ -177,9 +179,79 @@ p, span{
     width: 100%;
     height: 100%;
     background-color: #ffffff;
-    animation: loader-block 3s ease-in forwards;
+    animation: loader-block 2s ease-in forwards;
     opacity: 0.9;
     transform-origin: top;
+    &__bar1{
+        position: absolute;
+        z-index: 97;
+        left: 1%;
+        top: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $primary-color;
+        border-radius: 15px 0 0 15px;
+        transform-origin: left;
+        animation: load-barsX 0.5s ease-in 0s 1 normal both;
+    }
+    &__bar2{
+        position: absolute;
+        z-index: 96;
+        left: 33%;
+        top: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $secondary-color;
+        transform-origin: left;
+        animation: load-barsX 0.5s linear 0.4s 1 normal both;
+    }
+    &__bar3{
+        position: absolute;
+        z-index: 95;
+        left: 66%;
+        top: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $tertiary-color;
+        border-radius: 0 15px 15px 0 ;
+        transform-origin: left;
+        animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+    }
+    &__bar4{
+        position: absolute;
+        z-index: 97;
+        right: 1%;
+        bottom: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $primary-color;
+        border-radius: 0 15px 15px 0 ;
+        transform-origin: right;
+        animation: load-barsX 0.5s ease-in 0s 1 normal both;
+    }
+    &__bar5{
+        position: absolute;
+        z-index: 96;
+        right: 33%;
+        bottom: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $secondary-color;
+        transform-origin: right;
+        animation: load-barsX 0.5s linear 0.4s 1 normal both;
+    }
+    &__bar6{
+        position: absolute;
+        z-index: 95;
+        right: 66%;
+        bottom: 0;
+        width: 33%;
+        height: 3%;
+        background-color: $tertiary-color;
+        border-radius: 15px 0 0 15px;
+        transform-origin: right;
+        animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+    }
     .load-pic{
         width: 70%;
         height: 70%;
@@ -191,7 +263,7 @@ p, span{
         bottom: auto;
         margin: 10% 15% 20% 15%;
         opacity: 1;
-        animation: loading-anim 1s ease-in-out 2 normal both;
+        animation: loading-anim 1s ease-in 2 normal both;
     }
 }
 
@@ -244,6 +316,31 @@ p, span{
         transform: rotatez(360deg) scale(0);
     }
 }
+@keyframes load-barsX {
+    0% {
+        transform: scaleX(0) scaleY(1);
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+@keyframes load-barsY {
+    0% {
+        transform: scaleX(1) scaleY(0);
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
 
                                                     /* Layouts */
 /* Header */
@@ -396,7 +493,7 @@ p, span{
         margin: auto;
         width: 388px;
         height: 34px;
-        &__userlocation{
+        & #locbox__userlocation {
             height: 34px;
             font-family: $text-fontfamily;
             font-size: 26px;
@@ -417,7 +514,7 @@ p, span{
         .locbox{
             width: 190px;
             height: 25px;
-            &__userlocation{
+            & #locbox__userlocation {
                 width: 165px;
                 font-size: 16px;
                 padding-left: 8px;
@@ -436,7 +533,7 @@ p, span{
         .locbox{
             width: 280px;
             height: 35px;
-            &__userlocation{
+            & #locbox__userlocation {
                 width: 255px;;
                 height: 35px;
                 font-size: 25px;
