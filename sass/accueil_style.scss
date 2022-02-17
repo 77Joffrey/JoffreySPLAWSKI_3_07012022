@@ -265,6 +265,16 @@ p, span{
         opacity: 1;
         animation: loading-anim 1s ease-in 2 normal both;
     }
+    @include mobile {
+        .load-pic{
+            margin: 30% 15% 30% 15%; 
+        }
+    }
+    @include tablet {
+        .load-pic{
+            margin: 20% 15% 20% 15%; 
+        }
+    }
 }
 
 @keyframes loader-block {
