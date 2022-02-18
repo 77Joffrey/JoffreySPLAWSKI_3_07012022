@@ -43,7 +43,7 @@ a:active {
   color: #FF79DA;
 }
 
-p, span {
+p, span, h2 {
   margin: inherit;
 }
 
@@ -168,7 +168,7 @@ p, span {
 
 .heading__logo {
   width: 80%;
-  margin: auto auto auto 0;
+  margin: auto 10% auto auto;
   font-family: "Shrikhand", cursive;
   text-align: center;
   font-weight: normal;
@@ -178,13 +178,15 @@ p, span {
 .heading__back {
   position: relative;
   z-index: 1;
-  width: 10%;
-  left: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 30px;
 }
 
 .heading__back > i {
   color: black;
-  font-size: 48px;
+  font-size: 32px;
 }
 
 @media screen and (max-width: 599px) {
@@ -201,7 +203,7 @@ p, span {
     z-index: 1;
   }
   .heading__back > i {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 
@@ -221,7 +223,7 @@ p, span {
     z-index: 1;
   }
   .heading__back > i {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 
@@ -463,18 +465,18 @@ p, span {
           justify-content: center;
   width: 40%;
   height: 400px;
-  background: #ffffff;
+  background: #F2F2F2;
 }
 
 .menu__heading .placename {
-  width: 80%;
+  width: 60%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin: auto auto 25px auto;
   text-align: center;
   font-family: "Shrikhand", cursive;
-  font-size: 62px;
+  font-size: 58px;
 }
 
 .menu__heading .like_btn {
@@ -483,12 +485,12 @@ p, span {
   width: fit-content;
   margin: 25px auto auto auto;
   font-size: 36px;
-  background: #ffffff;
+  background: #F2F2F2;
 }
 
 .menu__heading .like_btn--on {
   font-size: 36px;
-  background: #ffffff;
+  background: #F2F2F2;
 }
 
 .menu .menubox {
@@ -552,14 +554,12 @@ p, span {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   width: 100%;
   height: 60px;
   background: #ffffff;
@@ -573,85 +573,79 @@ p, span {
   overflow: hidden;
 }
 
-.menu .menubox__phase .phasecontent--on {
+.menu .menubox__phase .phasecontent__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: calc(90%);
+  height: 100%;
+  margin: 0;
+  padding-left: 12px;
+  overflow: hidden;
+}
+
+.menu .menubox__phase .phasecontent__text .pc1 {
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 95%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
-}
-
-.menu .menubox__phase .phasecontent--on .pc1 {
-  width: 80%;
-  margin: 8px 0 2px 12px;
+  width: calc(100%);
+  height: 50%;
   font-size: 16px;
   color: black;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.menu .menubox__phase .phasecontent--on .pc2 {
-  width: 80%;
-  margin: 2px 0 8px 12px;
-  font-size: 13px;
+.menu .menubox__phase .phasecontent__text .pc2 {
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: calc(100%);
+  height: 50%;
+  font-size: 14px;
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.menu .menubox__phase .phasecontent--on .price {
+.menu .menubox__phase .phasecontent .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   width: 10%;
-  margin: auto 10px 8px 0;
-  font-size: 13px;
+  height: 100%;
+  margin: 0 3% 0 3%;
+  padding-bottom: 2%;
+  font-size: 14px;
   font-weight: bold;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   color: black;
-}
-
-.menu .menubox__phase .phasecontent--on:hover {
-  -webkit-transform: scaleX(0.85);
-          transform: scaleX(0.85);
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
-}
-
-.menu .menubox__phase .phasecontent--on:hover + .check-btn {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transition: -webkit-transform 0.7s ease-in-out;
-  transition: -webkit-transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
 }
 
 .menu .menubox__phase .phasecontent .check-btn {
-  position: absolute;
-  z-index: 1;
-  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -661,19 +655,35 @@ p, span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 15%;
+  width: 0%;
   height: 100%;
   font-size: 20px;
   color: #ffffff;
   background-color: #99E2D0;
   -webkit-transform-origin: right;
           transform-origin: right;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+
+.menu .menubox__phase .phasecontent .check-btn > i {
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
   -webkit-transition: -webkit-transform 0.7s ease-in-out;
   transition: -webkit-transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out;
   transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
+}
+
+.menu .menubox__phase .phasecontent:hover .check-btn, .menu .menubox__phase .phasecontent :active .check-btn {
+  width: 20%;
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+
+.menu .menubox__phase .phasecontent:hover .check-btn i, .menu .menubox__phase .phasecontent :active .check-btn i {
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
 }
 
 .menu .menubox__btn {
@@ -684,7 +694,7 @@ p, span {
       -ms-flex-pack: center;
           justify-content: center;
   width: 30%;
-  height: 45px;
+  height: 40px;
   border-radius: 22.5px;
   margin: 15px auto 15px auto;
   font-size: 24px;
@@ -733,15 +743,19 @@ p, span {
     background: #F2F2F2;
   }
   .menu__heading .placename {
-    width: 70%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     font-size: 26px;
-    margin: auto;
+    margin: auto auto auto 5%;
     text-align: left;
   }
   .menu__heading .like_btn {
-    width: 10%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     font-size: 24px;
-    margin: auto;
+    margin: auto 7% auto auto;
     background: #F2F2F2;
   }
   .menu__heading .like_btn--on {
@@ -794,45 +808,22 @@ p, span {
     height: 4px;
   }
   .menu .menubox__phase .phasecontent {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    width: 100%;
     height: 55px;
     background: #ffffff;
     border-radius: 16px;
     margin: 6px auto 6px auto;
   }
-  .menu .menubox__phase .phasecontent .pc1 {
-    width: 75%;
-    margin: 8px 0 2px 0;
-    font-size: 16px;
-    font-weight: bold;
+  .menu .menubox__phase .phasecontent__text {
+    padding-left: 4%;
   }
-  .menu .menubox__phase .phasecontent .pc2 {
-    width: 75%;
-    margin: 2px 0 8px 0;
-    font-size: 13px;
+  .menu .menubox__phase .phasecontent__text .pc1 {
+    font-size: 16px;
+  }
+  .menu .menubox__phase .phasecontent__text .pc2 {
+    font-size: 14px;
   }
   .menu .menubox__phase .phasecontent .price {
-    width: 10%;
-    margin: auto 10px 8px 0;
     font-size: 13px;
-    font-weight: bold;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
   }
   .menu .menubox__btn {
     display: inherit;
@@ -876,21 +867,24 @@ p, span {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 50%;
+    width: 65%;
     height: inherit;
-    margin: 20px 25% auto 25%;
+    margin: 20px auto auto auto;
     background: #F2F2F2;
   }
   .menu__heading .placename {
     width: 90%;
     height: 100%;
     font-size: 32px;
-    margin: auto;
+    margin: auto 0 auto 0;
+    padding-left: 3%;
   }
   .menu__heading .like_btn {
-    width: 10%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     font-size: 24px;
-    margin: auto;
+    margin: auto 0 auto 0;
     background: #F2F2F2;
   }
   .menu__heading .like_btn--on {
@@ -937,45 +931,24 @@ p, span {
     margin: auto auto 10px auto;
   }
   .menu .menubox__phase .phasecontent {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     width: 65%;
     height: 55px;
     background: #ffffff;
     border-radius: 16px;
     margin: 6px auto 6px auto;
   }
-  .menu .menubox__phase .phasecontent .pc1 {
-    width: 75%;
-    margin: 8px 0 2px 0;
-    font-size: 16px;
+  .menu .menubox__phase .phasecontent__text .pc1 {
+    font-size: 18px;
     font-weight: bold;
   }
-  .menu .menubox__phase .phasecontent .pc2 {
-    width: 75%;
-    margin: 2px 0 8px 0;
-    font-size: 13px;
+  .menu .menubox__phase .phasecontent__text .pc2 {
+    font-size: 16px;
   }
   .menu .menubox__phase .phasecontent .price {
-    width: 10%;
-    margin: auto 10px 8px 0;
     font-size: 13px;
-    font-weight: bold;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
   }
   .menu .menubox__btn {
     display: inherit;

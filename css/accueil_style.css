@@ -49,7 +49,7 @@ a:active {
   color: #FF79DA;
 }
 
-p, span {
+p, span, h2 {
   margin: inherit;
 }
 
@@ -802,7 +802,7 @@ p, span {
 
 .summary__text > .p2 {
   width: 100%;
-  font-size: 32px;
+  font-size: 28px;
   margin: 10px auto 10px auto;
 }
 
@@ -904,7 +904,7 @@ p, span {
 
 .functioning__head {
   width: 92%;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -956,6 +956,7 @@ p, span {
 }
 
 .functioningbox__content {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1011,11 +1012,16 @@ p, span {
   padding-left: 5px;
 }
 
-.functioningbox__content--colored {
+.functioningbox .fc1, .functioningbox .fc2, .functioningbox .fc3 {
+  -webkit-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out;
+}
+
+.functioningbox .fc1:hover, .functioningbox .fc2:hover, .functioningbox .fc3:hover {
   background: #f2eafb;
 }
 
-.functioningbox__content--colored > i {
+.functioningbox .fc1:hover > i, .functioningbox .fc2:hover > i, .functioningbox .fc3:hover > i {
   color: #9356DC;
 }
 
@@ -1192,7 +1198,7 @@ p, span {
 
 .choice__head {
   width: 92%;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   -ms-flex-item-align: start;
       align-self: flex-start;
