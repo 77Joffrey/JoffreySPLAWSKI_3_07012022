@@ -1012,12 +1012,9 @@ p, span, h2 {
   padding-left: 5px;
 }
 
-.functioningbox .fc1, .functioningbox .fc2, .functioningbox .fc3 {
+.functioningbox .fc1:hover, .functioningbox .fc2:hover, .functioningbox .fc3:hover {
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
-}
-
-.functioningbox .fc1:hover, .functioningbox .fc2:hover, .functioningbox .fc3:hover {
   background: #f2eafb;
 }
 
@@ -1088,12 +1085,6 @@ p, span, h2 {
     font-weight: bold;
     padding-left: 10px;
   }
-  .functioningbox__content--colored {
-    background: #f2eafb;
-  }
-  .functioningbox__content--colored > i {
-    color: #9356DC;
-  }
 }
 
 @media screen and (min-width: 599px) and (max-width: 992px) {
@@ -1155,12 +1146,6 @@ p, span, h2 {
     font-size: 20px;
     font-weight: bold;
     padding-left: 10px;
-  }
-  .functioningbox__content--colored {
-    background: #f2eafb;
-  }
-  .functioningbox__content--colored > i {
-    color: #9356DC;
   }
   .functioningbox .fc1 {
     margin-left: 0%;
@@ -1247,7 +1232,8 @@ p, span, h2 {
   }
 }
 
-.card {
+.cardcontainer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1269,13 +1255,19 @@ p, span, h2 {
   margin-bottom: 30px;
 }
 
-.card__pic {
+.cardcontainer .card {
+  width: 100%;
+  height: 100%;
+}
+
+.cardcontainer .card__pic {
   position: relative;
+  z-index: 0;
   width: 100%;
   height: 75%;
 }
 
-.card__pic .placeimage {
+.cardcontainer .card__pic .placeimage {
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 0;
@@ -1284,7 +1276,7 @@ p, span, h2 {
   border-radius: 20px 20px 0 0;
 }
 
-.card__pic .new {
+.cardcontainer .card__pic .new {
   position: absolute;
   z-index: 1;
   width: 75px;
@@ -1297,7 +1289,7 @@ p, span, h2 {
   right: 4%;
 }
 
-.card__content {
+.cardcontainer .card__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1315,31 +1307,22 @@ p, span, h2 {
   height: 25%;
   color: black;
   background: white;
+  padding-left: 5%;
 }
 
-.card__content div > .cp1 {
+.cardcontainer .card__content div > .cp1 {
   font-size: 16px;
   font-weight: bold;
   margin: 2px 0 2px 0;
 }
 
-.card__content div > .cp2 {
+.cardcontainer .card__content div > .cp2 {
   font-size: 16px;
   margin: 2px 0 2px 0;
 }
 
-.card__content .like_btn {
-  font-size: 20px;
-  background: #ffffff;
-}
-
-.card__content .like_btn--on {
-  font-size: 20px;
-  background: #ffffff;
-}
-
 @media screen and (max-width: 599px) {
-  .card {
+  .cardcontainer {
     width: 90%;
     height: 300px;
     margin-bottom: inherit;
@@ -1349,12 +1332,26 @@ p, span, h2 {
 }
 
 @media screen and (min-width: 599px) and (max-width: 992px) {
-  .card {
+  .cardcontainer {
     width: 45%;
     height: 300px;
     margin-bottom: inherit;
     margin: 2% auto 2% auto;
     border-radius: 20px;
   }
+}
+
+.cardcontainer .like_btn {
+  position: absolute;
+  z-index: 99;
+  right: 5%;
+  bottom: 5%;
+  font-size: 20px;
+  background: #ffffff;
+}
+
+.cardcontainer .like_btn--on {
+  font-size: 20px;
+  background: #ffffff;
 }
 /*# sourceMappingURL=accueil_style.css.map */

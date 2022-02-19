@@ -581,6 +581,9 @@ p, span, h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -589,18 +592,16 @@ p, span, h2 {
   margin: 0;
   padding-left: 12px;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .menu .menubox__phase .phasecontent__text .pc1 {
   display: inline-block;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: calc(100%);
-  height: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   font-size: 16px;
   color: black;
   font-weight: bold;
@@ -611,14 +612,10 @@ p, span, h2 {
 
 .menu .menubox__phase .phasecontent__text .pc2 {
   display: inline-block;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: calc(100%);
-  height: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   font-size: 14px;
   color: black;
   white-space: nowrap;
@@ -639,7 +636,7 @@ p, span, h2 {
   width: 10%;
   height: 100%;
   margin: 0 3% 0 3%;
-  padding-bottom: 2%;
+  padding-bottom: 3%;
   font-size: 14px;
   font-weight: bold;
   color: black;
