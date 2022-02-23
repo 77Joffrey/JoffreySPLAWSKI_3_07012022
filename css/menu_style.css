@@ -85,13 +85,13 @@ p, span, h2 {
   z-index: 0;
 }
 
-.like_btn:hover i, .like_btn :active i {
+.like_btn:hover i, .like_btn:active i {
   opacity: 0;
   -webkit-transition: opacity 0.75s ease-in-out;
   transition: opacity 0.75s ease-in-out;
 }
 
-.like_btn:hover .like_btn--on, .like_btn :active .like_btn--on {
+.like_btn:hover .like_btn--on, .like_btn:active .like_btn--on {
   opacity: 1;
   -webkit-transition: opacity 0.75s ease-in-out;
   transition: opacity 0.75s ease-in-out;
@@ -112,8 +112,12 @@ p, span, h2 {
   height: fit-content;
   margin: auto;
   text-align: center;
-  color: #9356dc;
   opacity: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
+  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Layouts */
@@ -133,7 +137,7 @@ p, span, h2 {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 150px;
+  height: 120px;
 }
 
 .heading__logo {
@@ -480,7 +484,6 @@ p, span, h2 {
 
 .menu__heading .like_btn--on {
   font-size: 36px;
-  background: #F2F2F2;
 }
 
 .menu .menubox {
@@ -516,7 +519,7 @@ p, span, h2 {
 }
 
 .menu .menubox__phase .phasetitle {
-  font-size: 28px;
+  font-size: 24px;
   text-transform: uppercase;
   margin: 20px auto 10px auto;
   -webkit-animation: contenttitle-anim 0.5s ease-in-out 0s 1 normal forwards;
@@ -662,13 +665,13 @@ p, span, h2 {
   transition: transform 0.7s ease-in-out, -webkit-transform 0.7s ease-in-out;
 }
 
-.menu .menubox__phase .phasecontent:hover .check-btn, .menu .menubox__phase .phasecontent :active .check-btn {
+.menu .menubox__phase .phasecontent:hover .check-btn, .menu .menubox__phase .phasecontent:active .check-btn {
   width: 20%;
   -webkit-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
 }
 
-.menu .menubox__phase .phasecontent:hover .check-btn i, .menu .menubox__phase .phasecontent :active .check-btn i {
+.menu .menubox__phase .phasecontent:hover .check-btn i, .menu .menubox__phase .phasecontent:active .check-btn i {
   -webkit-transform: rotateZ(360deg);
           transform: rotateZ(360deg);
 }
@@ -747,7 +750,6 @@ p, span, h2 {
   }
   .menu__heading .like_btn--on {
     font-size: 24px;
-    background: #F2F2F2;
   }
   .menu .menubox {
     display: -webkit-box;
@@ -876,7 +878,6 @@ p, span, h2 {
   }
   .menu__heading .like_btn--on {
     font-size: 24px;
-    background: #F2F2F2;
   }
   .menu .menubox {
     display: -webkit-box;

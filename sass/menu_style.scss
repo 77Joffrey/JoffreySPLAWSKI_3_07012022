@@ -128,16 +128,16 @@ p, span, h2{
     text-align: center;
     position: relative;
     z-index: 0;
-        &:hover, :active {
-            i {
-                opacity: 0;
-                transition: opacity 0.75s ease-in-out;
-            }
-            .like_btn--on {
-                opacity: 1;
-                transition: opacity 0.75s ease-in-out;
-            }
+    &:hover, &:active {
+        i {
+            opacity: 0;
+            transition: opacity 0.75s ease-in-out;
         }
+        .like_btn--on {
+            opacity: 1;
+            transition: opacity 0.75s ease-in-out;
+        }
+    }
     &--on {
         position: absolute;
         left: 0;
@@ -149,8 +149,11 @@ p, span, h2{
         height: fit-content;
         margin: auto;
         text-align: center;
-        color: $primary-color;
         opacity: 0;
+        background: $btn-color;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 
@@ -163,7 +166,7 @@ p, span, h2{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 150px;
+    height: 120px;
     &__logo{
         width: 80%;
         margin: auto 10% auto auto;
@@ -379,7 +382,6 @@ p, span, h2{
             background: #F2F2F2;
             &--on {
                 font-size: 36px;
-                background: #F2F2F2;
             }
         }
     }
@@ -397,7 +399,7 @@ p, span, h2{
             margin: 15px 1% 15px 1%;
             float: none;
             .phasetitle{
-                font-size: 28px;
+                font-size: 24px;
                 text-transform: uppercase;
                 margin: 20px auto 10px auto ;
                 animation: contenttitle-anim 0.5s ease-in-out 0s 1 normal forwards;
@@ -489,7 +491,7 @@ p, span, h2{
                         transition: transform 0.7s ease-in-out;
                     }
                 }
-                &:hover, :active {
+                &:hover, &:active {
                     .check-btn {
                         width: 20%;
                         transition: 0.7s ease-in-out;
@@ -552,7 +554,6 @@ p, span, h2{
                 background: #F2F2F2;
                 &--on{
                     font-size: 24px;
-                    background: #F2F2F2;
                 }
             }
         }
@@ -651,7 +652,6 @@ p, span, h2{
                 background: #F2F2F2;
                 &--on{
                     font-size: 24px;
-                    background: #F2F2F2;
                 }
             }
         }
