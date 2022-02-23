@@ -4,8 +4,8 @@
                                                     /* Utils */
 
 /* Variables */
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
+$primary-color: #9356dc;
+$secondary-color: #ff79da;
 $tertiary-color: #99E2D0;
 $logo_titles-fontfamily: 'Shrikhand', cursive;
 $text-fontfamily: 'Roboto', sans serif;
@@ -42,6 +42,18 @@ $links-state: (
             text-decoration: none),
 );
 
+$btn-state: (
+    focus: (
+        background: $lighten-btn,
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px),
+    hover: (
+        background: $lighten-btn,
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px),
+    active: (
+        background: $lighten-btn,
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px),
+);
+
 /* Mixins */
 @mixin mobile {
     @media screen and (max-width: map-get($breakpoints, mobile)){
@@ -62,6 +74,16 @@ $links-state: (
     }
 }
 
+@mixin btn-state ($maps){
+    @each $state, $val in $maps {
+        &:#{$state}{
+            background: map-get($val, background);
+            box-shadow: map-get($val, box-shadow);
+            transition: 0.4s ease-in-out;
+        }
+    }
+}
+
                                                     /* Base */
 body {
     width: 100%;
@@ -77,7 +99,6 @@ body {
 
 a{
     text-decoration: none;
-    @include links-state($links-state);
     cursor: pointer;
 }
 p, span, h2{
@@ -85,6 +106,9 @@ p, span, h2{
 }
 
                                                     /* Components */
+
+/* Buttons */
+
 .btn{
     cursor: pointer;
     border:none;
@@ -92,24 +116,8 @@ p, span, h2{
     font-size: 16px;
     color: #F2F2F2;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
-    animation-name: $lighten-btn;
-    animation-timing-function: ease-out;
-    animation-duration: 2s;
-    animation-direction: reverse;
-    &:hover, :active {
-        animation: lighten-btn 0.25s ease-in-out forwards;
-    }
-}
-
-@keyframes lighten-btn{
-    from{
-        background: $btn-color;
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
-    }
-    to{
-        background: $lighten-btn;
-        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px 1px;;
-    }
+    @include btn-state($btn-state);
+    transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 .like_btn{
@@ -230,12 +238,15 @@ p, span, h2{
         list-style: none;
         padding-left: inherit;
         font-size: 20px;
-        & .footlist__link{
+        .footlist__link{
             width: 23%;
             text-align: left;
-            & a i {
+            a i {
                 margin-right: 10px;
             }
+        }
+        .fl1, .fl2, .fl3, .fl4 {
+            @include links-state($links-state);  
         }
     }
     @include mobile {
@@ -319,7 +330,6 @@ p, span, h2{
         transform: translateY(0px);
     }
 }
-
 @keyframes contenttitle-anim {
     from{
         opacity: 0;
@@ -458,7 +468,7 @@ p, span, h2{
                     width: 10%;
                     height: 100%;
                     margin: 0 3% 0 3%;
-                    padding-bottom: 3%;
+                    padding-bottom: 2%;
                     font-size: 14px;
                     font-weight: bold;
                     color: black;
@@ -546,7 +556,7 @@ p, span, h2{
                 }
             }
         }
-        & .menubox{
+        .menubox{
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -645,7 +655,7 @@ p, span, h2{
                 }
             }
         }
-        & .menubox{
+        .menubox{
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -668,7 +678,7 @@ p, span, h2{
                 .phasecontent{
                     align-items: center;
                     width: 65%;
-                    height: 55px;
+                    height: 60px;
                     background: #ffffff;
                     border-radius: 16px;
                     margin: 6px auto 6px auto;

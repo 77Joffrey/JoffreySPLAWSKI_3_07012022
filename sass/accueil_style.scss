@@ -27,8 +27,7 @@ $font-family: (
 $links-state: (
     link: (
         txt: #ffffff,
-        text-decoration: none,
-    ),
+        text-decoration: none),
     visited: (
         txt: $primary-color,
         text-decoration: none),
@@ -46,13 +45,14 @@ $links-state: (
 $btn-state: (
     focus: (
         background: $lighten-btn,
-        box-shadow: rgba(0, 0, 0, 1) 0px 3px 10px 0px),
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px),
     hover: (
         background: $lighten-btn,
-        box-shadow: rgba(0, 0, 0, 1) 0px 3px 10px 0px),
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px),
     active: (
         background: $lighten-btn,
-        box-shadow: rgba(0, 0, 0, 1) 0px 3px 10px 0px),
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px,
+        ),
 );
 
 /* Mixins */
@@ -79,7 +79,8 @@ $btn-state: (
     @each $state, $val in $maps {
         &:#{$state}{
             background: map-get($val, background);
-            box-shadow: map-get($val, box-shadow)
+            box-shadow: map-get($val, box-shadow);
+            transition: 0.4s ease-in-out;
         }
     }
 }
@@ -105,7 +106,6 @@ body{
 
 a{
     text-decoration: none;
-    @include links-state($links-state);
     cursor: pointer;
 }
 p, span, h2{
@@ -113,64 +113,6 @@ p, span, h2{
 }
 
                                                     /* Components */
-.btn{
-    cursor: pointer;
-    border:none;
-    background: $btn-color;
-    color: #F2F2F2;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
-    &:hover{
-        animation: lighten-btn 0.25s ease-in-out both;   
-    }
-    &:active{
-        animation: lighten-btn 0.25s ease-in-out forwards;
-    }   
-}
-
-@keyframes lighten-btn{
-    from{
-        background: $btn-color;
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
-    }
-    to{
-        background: $lighten-btn;
-        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px 1px;;
-    }
-}
-
-.like_btn{
-    cursor: pointer;
-    width: fit-content;
-    height: fit-content;
-    border: none;
-    text-align: center;
-    position: relative;
-    z-index: 0;
-        &:hover, :active {
-            i {
-                opacity: 0;
-                transition: opacity 0.75s ease-in-out;
-            }
-            .like_btn--on {
-                opacity: 1;
-                transition: opacity 0.75s ease-in-out;
-            }
-        }
-    &--on {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-        width: fit-content;
-        height: fit-content;
-        margin: auto;
-        text-align: center;
-        color: $primary-color;
-        opacity: 0;
-    }
-}
 
 /* Loading spinner */
 .loader{
@@ -192,7 +134,7 @@ p, span, h2{
         background-color: $primary-color;
         border-radius: 15px 0 0 15px;
         transform-origin: left;
-        animation: load-barsX 0.5s ease-in 0s 1 normal both;
+        animation: load-bars 0.5s ease-in 0s 1 normal both;
     }
     &__bar2{
         position: absolute;
@@ -203,7 +145,7 @@ p, span, h2{
         height: 3%;
         background-color: $secondary-color;
         transform-origin: left;
-        animation: load-barsX 0.5s linear 0.4s 1 normal both;
+        animation: load-bars 0.5s linear 0.4s 1 normal both;
     }
     &__bar3{
         position: absolute;
@@ -215,7 +157,7 @@ p, span, h2{
         background-color: $tertiary-color;
         border-radius: 0 15px 15px 0 ;
         transform-origin: left;
-        animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+        animation: load-bars 0.5s ease-out 0.8s 1 normal both;
     }
     &__bar4{
         position: absolute;
@@ -227,7 +169,7 @@ p, span, h2{
         background-color: $primary-color;
         border-radius: 0 15px 15px 0 ;
         transform-origin: right;
-        animation: load-barsX 0.5s ease-in 0s 1 normal both;
+        animation: load-bars 0.5s ease-in 0s 1 normal both;
     }
     &__bar5{
         position: absolute;
@@ -238,7 +180,7 @@ p, span, h2{
         height: 3%;
         background-color: $secondary-color;
         transform-origin: right;
-        animation: load-barsX 0.5s linear 0.4s 1 normal both;
+        animation: load-bars 0.5s linear 0.4s 1 normal both;
     }
     &__bar6{
         position: absolute;
@@ -250,7 +192,7 @@ p, span, h2{
         background-color: $tertiary-color;
         border-radius: 15px 0 0 15px;
         transform-origin: right;
-        animation: load-barsX 0.5s ease-out 0.8s 1 normal both;
+        animation: load-bars 0.5s ease-out 0.8s 1 normal both;
     }
     .load-pic{
         width: 70%;
@@ -263,7 +205,7 @@ p, span, h2{
         bottom: auto;
         margin: 10% 15% 20% 15%;
         opacity: 1;
-        animation: loading-anim 1s ease-in 2 normal both;
+        animation: loading-anim 1s linear 2 normal both;
     }
     @include mobile {
         .load-pic{
@@ -276,7 +218,6 @@ p, span, h2{
         }
     }
 }
-
 @keyframes loader-block {
     0% {
         transform: scale(0);
@@ -305,28 +246,30 @@ p, span, h2{
         transform: rotatez(270deg);
     }
     40% {
-        transform: rotatez(360deg);
+        transform: rotatez(315deg);
+        transition-timing-function: ease-in;
     }
     50% {
-        transform: rotatez(0deg);
+        transform: rotatez(360deg);
     }
     60% {
-        transform: rotatez(0deg);
+        transform: rotatez(405deg);
+        transition-timing-function: ease-in;
     }
     70% {
-        transform: rotatez(90deg);
+        transform: rotatez(450deg);
     }
     80% {
-        transform: rotatez(180deg);
+        transform: rotatez(540deg);
     }
     90% {
-        transform: rotatez(270deg) scale(0.5);
+        transform: rotatez(630deg) scale(0.5);
     }
     100%{
-        transform: rotatez(360deg) scale(0);
+        transform: rotatez(720deg) scale(0);
     }
 }
-@keyframes load-barsX {
+@keyframes load-bars {
     0% {
         transform: scaleX(0) scaleY(1);
         opacity: 0;
@@ -338,19 +281,60 @@ p, span, h2{
         transform: scaleX(1) scaleY(1);
     }
 }
-@keyframes load-barsY {
-    0% {
-        transform: scaleX(1) scaleY(0);
-        opacity: 0;
-    }
-    80%{
-        opacity: 1;
-    }
-    100% {
-        transform: scaleX(1) scaleY(1);
-    }
+
+/* Buttons */
+
+.btn{
+    cursor: pointer;
+    border:none;
+    background: $btn-color;
+    font-size: 16px;
+    color: #F2F2F2;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px 0px;
+    @include btn-state($btn-state);
+    transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
+.like_btn{
+    cursor: pointer;
+    width: 14%;
+    height: 8%;
+    border: none;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover, &:active {
+            i {
+                opacity: 0;
+                transition: opacity 0.75s ease-in-out;
+            }
+        .like_btn--on {
+            opacity: 1;
+            transition: opacity 0.75s ease-in-out;
+            }
+    }
+    i {
+        width: fit-content;
+        height: fit-content;
+    }
+    &--on {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        width: fit-content;
+        height: fit-content;
+        margin: 0;
+        text-align: center;
+        color: $primary-color;
+        opacity: 0;
+    }
+}
 
                                                     /* Layouts */
 /* Header */
@@ -409,12 +393,16 @@ p, span, h2{
         list-style: none;
         padding-left: inherit;
         font-size: 20px;
-        & .footlist__link{
+        .footlist__link{
             width: 23%;
             text-align: left;
-            & a i {
+            a i {
                 margin-right: 10px;
             }
+
+        }
+        .fl1, .fl2, .fl3, .fl4 {
+            @include links-state($links-state);  
         }
     }
     @include mobile {
@@ -432,17 +420,17 @@ p, span, h2{
             flex-direction: column;
             font-size: 18px;
             margin-left: 20px;
-            & .footlist__link{
+            .footlist__link{
                 width: 100%;
                 text-align: inherit;
                 a {
-                    & .footerlogo1{
+                    .footerlogo1{
                         width: 15px;
                         height: 18px;
                         margin-right: 10px;
                         font-size: 17px;
                     }
-                    & .footerlogo2{
+                    .footerlogo2{
                         width: 15px;
                         height: 18px;
                         margin-right: 10px;
@@ -475,10 +463,10 @@ p, span, h2{
             list-style: none;
             padding-left: inherit;
             font-size: 18px;
-            & .footlist__link{
+            .footlist__link{
                 width: fit-content;
                 text-align: center;
-                & a i {
+                a i {
                     margin-right: 10px;
                 }
             }
@@ -503,7 +491,7 @@ p, span, h2{
         margin: auto;
         width: 388px;
         height: 34px;
-        & #locbox__userlocation {
+        #locbox__userlocation {
             height: 34px;
             font-family: $text-fontfamily;
             font-size: 26px;
@@ -524,7 +512,7 @@ p, span, h2{
         .locbox{
             width: 190px;
             height: 25px;
-            & #locbox__userlocation {
+            #locbox__userlocation {
                 width: 165px;
                 font-size: 16px;
                 padding-left: 8px;
@@ -543,7 +531,7 @@ p, span, h2{
         .locbox{
             width: 280px;
             height: 35px;
-            & #locbox__userlocation {
+            #locbox__userlocation {
                 width: 255px;;
                 height: 35px;
                 font-size: 25px;
@@ -562,7 +550,7 @@ p, span, h2{
 
 /* Summary */
 
-.summary{
+.summary {
     display: flex;
     flex-direction: row;
     justify-content:space-around;
@@ -586,9 +574,9 @@ p, span, h2{
             margin: 10px auto 10px auto;
         }
     }
-    &__btn{
+    &__btn {
         margin:auto ;
-        width: 25%;
+        width: 24%;
         height: 65px;
         border-radius: 32.5px;
         font-size: 20px;
@@ -733,8 +721,14 @@ p, span, h2{
             padding-left: 5px;
         }
     }
-    .fc1, .fc2, .fc3 {
-        &:hover{
+    .fc3 {
+        background: lighten($primary-color, 35);
+        > i{
+            color: $primary-color;
+        }
+    }
+    .fc1, .fc2 {
+        &:hover, &:active {
             transition: 0.7s ease-in-out;
             background: lighten($primary-color, 35);
             > i{
@@ -919,9 +913,9 @@ p, span, h2{
                 position:absolute;
                 z-index: 1;
                 width: 75px;
-                height: 25px;
+                height: fit-content;
                 background: $tertiary-color;
-                font-size: 14px;
+                font-size: 15px;
                 text-align: center;
                 color: darken($tertiary-color, 40%);
                 top: 5%;
@@ -970,12 +964,15 @@ p, span, h2{
         position: absolute;
         z-index: 99;
         right: 5%;
-        bottom: 5%;
+        bottom: 6%;
         font-size: 20px;
         background: #ffffff;
         &--on {
             font-size: 20px;
             background: #ffffff;
+
+            width: 100%;
+            height: 100%;
         }
     }
 }
