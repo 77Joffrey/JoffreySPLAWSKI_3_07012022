@@ -567,7 +567,7 @@ p, span, h2{
         margin: auto;
         > .p1{
             width: 100%;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             margin: 10px auto 10px auto;
         }
@@ -652,7 +652,7 @@ p, span, h2{
     height: 220px;
     &__head{
         width: 92%;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
         align-self: flex-start;
         margin: auto auto 15px auto;
@@ -719,9 +719,9 @@ p, span, h2{
             width: 80%;
             display: inline-block;
             margin: auto;
-            font-size: 115%;
+            font-size: 100%;
             font-weight: bold;
-            padding-left: 5px;
+            padding-left: 10px;
         }
     }
     .fc3 {
@@ -848,15 +848,15 @@ p, span, h2{
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    height: 420px;
+    height: 400px;
     background: #F2F2F2;
     padding: 0 4% 0 4%;
     &__head{
         width: 92%;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
         align-self: flex-start;
-        margin: 25px 0 15px 0;
+        margin: 10px 0 15px 0;
     }
     @include mobile{
     height: 1400px;
