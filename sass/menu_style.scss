@@ -448,6 +448,7 @@ p, span, h2{
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                        animation: none;
                     }
                     .pc2{
                         display: inline-block;
@@ -458,6 +459,7 @@ p, span, h2{
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                        animation: none;
                     }
                 }
                 .price{
@@ -499,16 +501,16 @@ p, span, h2{
                 }
             }
             .pc1 {
-                animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
+                animation: contentmenu-anim 0.5s ease-in-out 0.1s 1 normal both;
             }
             .pc2 {
-                animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
+                animation: contentmenu-anim 0.5s ease-in-out 0.4s 1 normal both;
             }
             .pc3 {
-                animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
+                animation: contentmenu-anim 0.5s ease-in-out 0.7s 1 normal both;
             }
             .pc4 {
-                animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
+                animation: contentmenu-anim 0.5s ease-in-out 1s 1 normal both;
             }
         }
         &__btn{

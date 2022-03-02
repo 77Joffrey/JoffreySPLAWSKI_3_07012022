@@ -597,6 +597,8 @@ p, span, h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .menu .menubox__phase .phasecontent__text .pc2 {
@@ -610,6 +612,8 @@ p, span, h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .menu .menubox__phase .phasecontent .price {
@@ -673,23 +677,23 @@ p, span, h2 {
 }
 
 .menu .menubox__phase .pc1 {
-  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
-          animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.1s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.1s 1 normal both;
 }
 
 .menu .menubox__phase .pc2 {
-  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
-          animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.4s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.4s 1 normal both;
 }
 
 .menu .menubox__phase .pc3 {
-  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
-          animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.7s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.7s 1 normal both;
 }
 
 .menu .menubox__phase .pc4 {
-  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
-          animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 1s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 1s 1 normal both;
 }
 
 .menu .menubox__btn {
