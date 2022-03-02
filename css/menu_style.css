@@ -377,8 +377,8 @@ p, span, h2 {
 @-webkit-keyframes contentmenu-anim {
   from {
     opacity: 0;
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
+    -webkit-transform: translateY(7px);
+            transform: translateY(7px);
   }
   to {
     opacity: 1;
@@ -389,8 +389,8 @@ p, span, h2 {
 @keyframes contentmenu-anim {
   from {
     opacity: 0;
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
+    -webkit-transform: translateY(7px);
+            transform: translateY(7px);
   }
   to {
     opacity: 1;
@@ -561,8 +561,6 @@ p, span, h2 {
   padding: 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
           box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
-  -webkit-animation: contentmenu-anim 1s ease-in-out 0.5s 1 normal both;
-          animation: contentmenu-anim 1s ease-in-out 0.5s 1 normal both;
   overflow: hidden;
 }
 
@@ -585,8 +583,6 @@ p, span, h2 {
   margin: 0;
   padding-left: 12px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .menu .menubox__phase .phasecontent__text .pc1 {
@@ -674,6 +670,26 @@ p, span, h2 {
 .menu .menubox__phase .phasecontent:hover .check-btn i, .menu .menubox__phase .phasecontent:active .check-btn i {
   -webkit-transform: rotateZ(360deg);
           transform: rotateZ(360deg);
+}
+
+.menu .menubox__phase .pc1 {
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
+}
+
+.menu .menubox__phase .pc2 {
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
+}
+
+.menu .menubox__phase .pc3 {
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
+}
+
+.menu .menubox__phase .pc4 {
+  -webkit-animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
+          animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
 }
 
 .menu .menubox__btn {

@@ -326,7 +326,7 @@ p, span, h2{
 @keyframes contentmenu-anim {
     from{
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(7px);
     }
     to{
         opacity: 1;
@@ -427,7 +427,6 @@ p, span, h2{
                 margin: 15px auto 15px auto;
                 padding: 0;
                 box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
-                animation: contentmenu-anim 1s ease-in-out 0.5s 1 normal both;
                 overflow: hidden;
                 &__text{
                     display: flex;
@@ -439,8 +438,6 @@ p, span, h2{
                     margin: 0;
                     padding-left: 12px;
                     overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
                     .pc1{
                         display: inline-block;
                         width: calc(100%);
@@ -500,6 +497,18 @@ p, span, h2{
                         }
                     }
                 }
+            }
+            .pc1 {
+                animation: contentmenu-anim 0.5s ease-in-out 0s 1 normal both;
+            }
+            .pc2 {
+                animation: contentmenu-anim 0.5s ease-in-out 0.25s 1 normal both;
+            }
+            .pc3 {
+                animation: contentmenu-anim 0.5s ease-in-out 0.5s 1 normal both;
+            }
+            .pc4 {
+                animation: contentmenu-anim 0.5s ease-in-out 0.75s 1 normal both;
             }
         }
         &__btn{
